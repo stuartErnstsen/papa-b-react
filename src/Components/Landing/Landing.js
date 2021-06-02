@@ -2,7 +2,12 @@ import './Landing.css';
 const Landing = (props) => {
     return (
         <main className='landing'>
-            <h1>landing</h1>
+            <section>
+                TOP
+            </section>
+            <section>
+
+            </section>
         </main>
     )
 }
