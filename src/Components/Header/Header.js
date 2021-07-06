@@ -6,12 +6,12 @@ const Header = (props) => {
             <div>
                 LOGO
             </div>
-            <nav>
+            {/* <nav>
                 <ul>
                     <li>HOME</li>
                     <li>ABOUT</li>
                 </ul>
-            </nav>
+            </nav> */}
         </header>
     )
 }
