@@ -1,12 +1,57 @@
 .landing {
-    padding-top: 100px;
+    padding: 100px 40px 0 40px;
     height: 100vh;
     width: 100vw;
-    color: white;
+    color: rgb(221, 101, 101);
     overflow: hidden;
     
     /* background-image: url("https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"); */
     background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-container {
+    height: calc(100vh - 140px);
+    width: 100%;
+    background-color: rgb(139, 139, 161);
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.item-inner-container {
+    display: flex;
+    width: 100%;
+}
+
+.item-inner-left {
+    width: 60%;
+    background-color: black;
+}
+
+.item-inner-right {
+    width: 40%;
+}
+
+.item-inner-right h2 {
+    font-size: 80px;
+}
+
+.item-inner-right p{
+    font-size: 1.5rem;
+}
+
+.buy-button {
+    width: 400px;
+    height: 120px;
+    border-radius: 20px;
+    border: 3px solid black;
+    background-color: transparent;
+    font-weight: 900;
+    font-size: 100px;
+    line-height: 100px;
 }
 
 .cart {
@@ -17,6 +62,7 @@
     top: 80px;
     right: 0;
     background-color: rgb(252, 85, 85);
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-top-left-radius: 2%;
+    border-bottom-left-radius: 2%;
+    box-shadow: inset 0 0 20px rgb(102, 38, 38);
 }
