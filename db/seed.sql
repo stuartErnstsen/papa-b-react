@@ -3,8 +3,8 @@ create table pb_users (
     email varchar(150),
     first_name varchar(50),
     last_name varchar(50),
-    hashword varchar(2000),
-    is_admin boolean default false
+    is_admin boolean default false,
+    hashword varchar(2000)
 );
 
 -- insert into pb_users (

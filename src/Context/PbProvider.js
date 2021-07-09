@@ -1,15 +1,13 @@
-import { useState } from 'react';
 import PbContext from './PbContext';
-import useTestState from '../hooks/useTestState';
+import useAuthContext from '../hooks/useAuthContext';
 
 const PbProvider = (props) => {
-    const [test, setTest] = useState('YOYOOYOY')
-    const testStateObj = useTestState();
+    const authContextObj = useAuthContext();
+
     return (
         <PbContext.Provider
             value={{
-                test,
-                ...testStateObj
+                ...authContextObj
             }}>
             {props.children}
         </PbContext.Provider>

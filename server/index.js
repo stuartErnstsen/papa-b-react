@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const massive = require('massive');
 const app = express();
+const authCtrl = require('./controllers/auth')
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env
 
 app.use(express.json())
@@ -16,6 +17,7 @@ app.use(session({
     }
 }))
 
+
 massive({
     connectionString: CONNECTION_STRING,
     ssl: { rejectUnauthorized: false }
@@ -24,5 +26,10 @@ massive({
     console.log('DB connected!')
     app.listen(SERVER_PORT, () => console.log(`WOW, SO MUCH SERVER ON PORT: ${SERVER_PORT}!`))
 }).catch(err => console.log(err))
+
+
+app.put('/auth/login', authCtrl.login)
+app.post('/auth/register', authCtrl.register)
+app.get('/auth/user', authCtrl.userOnSession)
 
 
