@@ -55,7 +55,7 @@
     line-height: 100px;
 }
 
-.cart {
+.side-bar-container {
     position: fixed;
     height: calc(100vh - 140px);
     margin: 40px 0px;

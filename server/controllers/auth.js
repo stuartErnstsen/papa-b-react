@@ -2,14 +2,14 @@ const bcrypt = require('bcryptjs')
 
 module.exports = {
     login: async (req, res) => {
-        const { emailInput, passwordInput } = req.body
+        const { email, password } = req.body
         const db = req.app.get('db')
         try {
-            const [foundUser] = await db.auth.check_user(emailInput)
+            const [foundUser] = await db.auth.check_user(email)
             if (!foundUser) {
                 return res.status(409).send('User with that email does not exist!')
             }
-            const passwordIsAuthenticated = bcrypt.compareSync(passwordInput, foundUser.hashword)
+            const passwordIsAuthenticated = bcrypt.compareSync(password, foundUser.hashword)
             if (passwordIsAuthenticated) {
                 delete foundUser.hashword
                 req.session.user = foundUser
@@ -24,7 +24,7 @@ module.exports = {
 
     },
     register: async (req, res) => {
-        const { email, password, first, last } = req.body
+        const { email, password, firstName, lastName } = req.body
         const db = req.app.get('db')
         try {
             const [foundUser] = await db.auth.check_user(email)
@@ -33,7 +33,7 @@ module.exports = {
             }
             const salt = bcrypt.genSaltSync(10)
             const hash = bcrypt.hashSync(password, salt)
-            const [newUser] = await db.auth.register(email, first, last, hash)
+            const [newUser] = await db.auth.register(email, firstName, lastName, hash)
             delete newUser.hashword
             req.session.user = newUser
             return res.status(200).send(newUser)

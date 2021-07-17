@@ -1,25 +1,17 @@
 import { useState } from 'react';
 import { useTransition, animated } from '@react-spring/web';
+import Sidebar from '../Sidebar/Sidebar'
 // import axios from 'axios';
 // import PbContext from '../../Context/PbContext'
 import './Landing.css';
 
 const Landing = (props) => {
-    // const { setUser } = useContext(PbContext)
-    const [emailInput, setEmailInput] = useState('')
-    const [passwordInput, setPasswordInput] = useState('')
-    const [showCart, setShowCart] = useState(false)
-    const cartContainerTransition = useTransition(showCart, {
+    const [showSidebar, setShowSidebar] = useState(false)
+    const sideBarContainerTransition = useTransition(showSidebar, {
         from: { right: -500 },
         enter: { right: 0 },
         leave: { right: -500 },
     })
-
-    const handleLogin = (e) => {
-        e.preventDefault()
-
-    }
-
 
     return (
         <main className='landing'>
@@ -33,18 +25,11 @@ const Landing = (props) => {
                         <p>Do veniam reprehenderit laborum ipsum quis in dolore mollit excepteur. Duis non exercitation sit adipisicing tempor ullamco laboris sit labore magna exercitation ut. Pariatur ullamco laboris ut pariatur elit consectetur. Duis proident et elit adipisicing proident ea irure non aliqua commodo ullamco pariatur irure irure. Do nulla esse labore ipsum culpa pariatur ullamco dolore pariatur cupidatat ex.</p>
                     </div>
                 </div>
-                <button className='buy-button' onClick={() => setShowCart(old => !old)}>BUY</button>
+                <button className='buy-button' onClick={() => setShowSidebar(old => !old)}>BUY</button>
             </section>
-            {cartContainerTransition((style, item) =>
+            {sideBarContainerTransition((style, item) =>
                 item ? (
-                    <animated.div style={style} className='cart' >
-                        <form onSubmit={handleLogin}>
-                            <input value={emailInput} onChange={(e) => setEmailInput(e.target.value)} placeholder='Email' />
-                            <input value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} placeholder='password' />
-                            <button type='submit'>LOGIN</button>
-                        </form>
-
-                    </animated.div>
+                    <Sidebar style={style} />
                 ) : null
             )}
         </main>
