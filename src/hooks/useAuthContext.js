@@ -17,6 +17,16 @@ const useAuthContext = () => {
 
     useEffect(() => {
         console.log({ user })
+        if (user) {
+            setInput({
+                email: '',
+                username: '',
+                password: '',
+                passwordValidate: '',
+                firstName: '',
+                lastName: ''
+            })
+        }
     }, [user])
 
     useEffect(() => {
@@ -67,6 +77,12 @@ const useAuthContext = () => {
             .catch(err => console.log(err))
     }
 
+    const handleLogout = () => {
+        axios.delete('/auth/logout')
+            .then(() => setUser(null))
+            .catch(err => console.log(err))
+    }
+
     return {
         user,
         setUser,
@@ -76,7 +92,8 @@ const useAuthContext = () => {
         showRegister,
         setShowRegister,
         handleLogin,
-        handleRegister
+        handleRegister,
+        handleLogout
     }
 }
 

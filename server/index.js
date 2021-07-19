@@ -31,5 +31,5 @@ massive({
 app.put('/auth/login', authCtrl.login)
 app.post('/auth/register', authCtrl.register)
 app.get('/auth/user', authCtrl.userOnSession)
-
+app.delete('/auth/logout', authCtrl.logout)
 

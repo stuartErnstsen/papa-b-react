@@ -54,16 +54,3 @@
     font-size: 100px;
     line-height: 100px;
 }
-
-.side-bar-container {
-    position: fixed;
-    height: calc(100vh - 140px);
-    margin: 40px 0px;
-    width: 500px;
-    top: 80px;
-    right: 0;
-    background-color: rgb(252, 85, 85);
-    border-top-left-radius: 2%;
-    border-bottom-left-radius: 2%;
-    box-shadow: inset 0 0 20px rgb(102, 38, 38);
-}
